@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>At Your Home Service Booking Form</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/style-home.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$("#painting-form").show();
+			$("#cleaning-form").hide();
+			$("#electrician-form").hide();
+			$("#plumber-form").hide();
+			$("#repair-form").hide();
+			$("#salon-form").hide();
+
+			$("#service").on("change", function() {
+				var selectedService = $(this).val();
+				if (selectedService == "painting") {
+					$("#painting-form").show();
+					$("#cleaning-form").hide();
+					$("#electrician-form").hide();
+					$("#plumber-form").hide();
+					$("#repair-form").hide();
+					$("#salon-form").hide();
+				} else if (selectedService == "cleaning") {
+					$("#painting-form").hide();
+					$("#cleaning-form").show();
+					$("#electrician-form").hide();
+					$("#plumber-form").hide();
+					$("#repair-form").hide();
+					$("#salon-form").hide();
+				} else if (selectedService == "electrician") {
+					$("#painting-form").hide();
+					$("#cleaning-form").hide();
+					$("#electrician-form").show();
+					$("#plumber-form").hide();
+					$("#repair-form").hide();
+					$("#salon-form").hide();
+				} else if (selectedService == "plumber") {
+					$("#painting-form").hide();
+					$("#cleaning-form").hide();
+					$("#electrician-form").hide();
+					$("#plumber-form").show();
+					$("#repair-form").hide();
+					$("#salon-form").hide();
+				} else if (selectedService == "repair") {
+					$("#painting-form").hide();
+					$("#cleaning-form").hide();
+					$("#electrician-form").hide();
+					$("#plumber-form").hide();
+					$("#repair-form").show();
+					$("#salon-form").hide();
+				} else if (selectedService == "salon") {
+					$("#painting-form").hide();
+					$("#cleaning-form").hide();
+					$("#electrician-form").hide();
+					$("#plumber-form").hide();
+					$("#repair-form").hide();
+					$("#salon-form").show();
+				} else {
+					$("#painting-form").hide();
+					$("#cleaning-form").hide();
+					$("#electrician-form").hide();
+					$("#plumber-form").hide();
+					$("#repair-form").hide();
+					$("#salon-form").hide();
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+
+	<div class="container">
+        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+          <div class="col-md-3 mb-2 mb-md-0">
+            <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
+            <img src="{{ url_for('static', filename='img/logo.png') }}" width="150">
+            </a>
+          </div>
+
+<div class="container">
+	<h1>Home Service Booking Platform</h1>
+	<p>Please select the service you require:</p>
+	<select id="service" class="form-control">
+		<option value="">Select Service</option>
+		<option value="painting">Home Painting</option>
+		<option value="cleaning">Cleaning and Pest Control</option>
+		<option value="electrician">Electricians</option>
+		<option value="plumber">Plumbers & Carpenters</option>
+		<option value="repair">AC/Appliance Repair</option>
+		<option value="salon">Salon Services</option>
+	</select>
+
+<div id="painting-form">
+	<h2>Home Painting</h2>
+	<form>
+		<div class="form-group">
+			<label for="painting-type">Type of painting service:</label>
+			<select class="form-control" id="painting-type" name="painting-type">
+				<option value="interior">Interior</option>
+				<option value="exterior">Exterior</option>
+				<option value="both">Both</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="square-footage">Square footage of area to be painted:</label>
+			<input type="number" class="form-control" id="square-footage" name="square-footage">
+		</div>
+		<div class="form-group">
+			<label for="num-rooms">Number of rooms to be painted:</label>
+			<input type="number" class="form-control" id="num-rooms" name="num-rooms">
+		</div>
+		<div class="form-group">
+			<label for="desired-color">Desired color(s):</label>
+			<input type="text" class="form-control" id="desired-color" name="desired-color">
+		</div>
+		<div class="form-group">
+			<label for="additional-notes">Additional notes or requests:</label>
+			<textarea class="form-control" id="additional-notes" name="additional-notes"></textarea>
+		</div>
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+</div>
+
+
+<div id="cleaning-form">
+	<h2>Cleaning and Pest Control</h2>
+	<form>
+		<div class="form-group">
+			<label for="cleaning-type">Type of cleaning service:</label>
+			<select class="form-control" id="cleaning-type" name="cleaning-type">
+				<option value="regular">Regular</option>
+				<option value="deep">Deep</option>
+				<option value="move-in/out">Move-in/out</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="square-footage">Square footage of area to be cleaned:</label>
+			<input type="number" class="form-control" id="square-footage" name="square-footage">
+		</div>
+		<div class="form-group">
+			<label for="pest-type">Type of pests:</label>
+			<input type="text" class="form-control" id="pest-type" name="pest-type">
+		</div>
+		<div class="form-group">
+			<label for="additional-notes">Additional notes or requests:</label>
+			<textarea class="form-control" id="additional-notes" name="additional-notes"></textarea>
+		</div>
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+</div>
+
+
+<div id="electrician-form">
+	<h2>Electricians</h2>
+	<form>
+		<div class="form-group">
+			<label for="service-type">Type of service:</label>
+			<select class="form-control" id="service-type" name="service-type">
+				<option value="installation">Installation</option>
+				<option value="repair">Repair</option>
+				<option value="maintenance">Maintenance</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="electrical-work">Type of electrical work needed:</label>
+			<select class="form-control" id="electrical-work" name="electrical-work">
+				<option value="residential">Residential</option>
+				<option value="commercial">Commercial</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="specific-needs">Any specific electrical needs or issues:</label>
+			<textarea class="form-control" id="specific-needs" name="specific-needs"></textarea>
+		</div>
+		<div class="form-group">
+			<label for="additional-notes">Additional notes or requests:</label>
+			<textarea class="form-control" id="additional-notes" name="additional-notes"></textarea>
+		</div>
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+</div>
+
+
+<div id="plumber-form">
+	<h2>Plumbers & Carpenters</h2>
+	<form>
+		<div class="form-group">
+			<label for="service-type">Type of service:</label>
+			<select class="form-control" id="service-type" name="service-type">
+				<option value="installation">Installation</option>
+				<option value="repair">Repair</option>
+				<option value="maintenance">Maintenance</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="work-type">Type of plumbing or carpentry work needed:</label>
+			<select class="form-control" id="work-type" name="work-type">
+				<option value="residential">Residential</option>
+				<option value="commercial">Commercial</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="specific-needs">Any specific plumbing or carpentry needs or issues:</label>
+			<textarea class="form-control" id="specific-needs" name="specific-needs"></textarea>
+		</div>
+		<div class="form-group">
+			<label for="additional-notes">Additional notes or requests:</label>
+			<textarea class="form-control" id="additional-notes" name="additional-notes"></textarea>
+		</div>
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+</div>
+
+
+<div id="repair-form">
+	<h2>AC/Appliance Repair</h2>
+	<form>
+		<div class="form-group">
+			<label for="service-type">Type of service:</label>
+			<select class="form-control" id="service-type" name="service-type">
+				<option value="installation">Installation</option>
+				<option value="repair">Repair</option>
+				<option value="maintenance">Maintenance</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="appliance-type">Type of appliance or AC unit:</label>
+			<select class="form-control" id="appliance-type" name="appliance-type">
+				<option value="refrigerator">Refrigerator</option>
+				<option value="washing-machine">Washing Machine</option>
+				<option value="dryer">Dryer</option>
+				<option value="dishwasher">Dishwasher</option>
+				<option value="oven">Oven</option>
+				<option value="air-conditioner">Air Conditioner</option>
+				<option value="other">Other</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="specific-needs">Any specific issues or needs:</label>
+			<textarea class="form-control" id="specific-needs" name="specific-needs"></textarea>
+		</div>
+		<div class="form-group">
+			<label for="additional-notes">Additional notes or requests:</label>
+			<textarea class="form-control" id="additional-notes" name="additional-notes"></textarea>
+		</div>
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+</div>
+
+
+<div id="salon-form">
+	<h2>Salon Services</h2>
+	<form>
+		<div class="form-group">
+			<label for="service-type">Type of service:</label>
+			<select class="form-control" id="service-type" name="service-type">
+				<option value="haircut">Haircut</option>
+				<option value="styling">Styling</option>
+				<option value="coloring">Coloring</option>
+				<option value="nails">Nails</option>
+				<option value="other">Other</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="preferred-date">Preferred date and time:</label>
+			<input type="datetime-local" class="form-control" id="preferred-date" name="preferred-date">
+		</div>
+		<div class="form-group">
+			<label for="location">Location of service:</label>
+			<select class="form-control" id="location" name="location">
+				<option value="home">Home</option>
+				<option value="salon">Salon</option>
+				<option value="other">Other</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="additional-notes">Additional notes or requests:</label>
+			<textarea class="form-control" id="additional-notes" name="additional-notes"></textarea>
+		</div>
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+</div>
+
+		
+		<script>
+		$(document).ready(function() {
+			// Hide all the service forms initially
+			$('#painting-form').hide();
+			$('#cleaning-form').hide();
+			$('#electrician-form').hide();
+			$('#plumber-form').hide();
+			$('#repair-form').hide();
+			$('#salon-form').hide();
+		
+			// Show the selected service form and hide others
+			$('#service').change(function() {
+				var service = $(this).val();
+				$('#painting-form').hide();
+				$('#cleaning-form').hide();
+				$('#electrician-form').hide();
+				$('#plumber-form').hide();
+				$('#repair-form').hide();
+				$('#salon-form').hide();
+		
+				if (service === 'painting') {
+					$('#painting-form').show();
+				} else if (service === 'cleaning') {
+					$('#cleaning-form').show();
+				} else if (service === 'electrician') {
+					$('#electrician-form').show();
+				} else if (service === 'plumber') {
+					$('#plumber-form').show();
+				} else if (service === 'repair') {
+					$('#repair-form').show();
+				} else if (service === 'salon') {
+					$('#salon-form').show();
+				}
+			});
+		});
+		</script>
+		
